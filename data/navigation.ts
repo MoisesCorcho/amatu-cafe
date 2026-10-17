@@ -4,7 +4,7 @@ export const NAV_ITEMS: NavItem[] = [
   { label: "Inicio", href: "#hero" },
   { label: "Nuestra Historia", href: "#historia" },
   { label: "Catálogo", href: "#catalogo" },
-  { label: "Nosotros & FICCA", href: "#nosotros" },
+  { label: "Nosotros", href: "#nosotros" },
 ];
 
 export const CONTACT_INFO = {

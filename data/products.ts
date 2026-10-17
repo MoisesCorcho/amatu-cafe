@@ -27,6 +27,7 @@ export const PRODUCTS: Product[] = [
     variantsLabel: "Molienda:",
     variants: ["Molido", "En Grano"],
     defaultVariant: "Molido",
+    imageFit: "contain",
   },
   {
     id: "prod-2",
@@ -51,6 +52,7 @@ export const PRODUCTS: Product[] = [
     variantsLabel: "Presentación:",
     variants: ["Caja x 10 Unidades"],
     defaultVariant: "Caja x 10 Unidades",
+    imageFit: "cover",
   },
   {
     id: "prod-3",
@@ -75,6 +77,7 @@ export const PRODUCTS: Product[] = [
     variantsLabel: "Capacidad / Acabado:",
     variants: ["Acero Inoxidable (600ml)"],
     defaultVariant: "Acero Inoxidable (600ml)",
+    imageFit: "contain",
   },
   {
     id: "prod-4",
@@ -98,6 +101,7 @@ export const PRODUCTS: Product[] = [
     variantsLabel: "Material:",
     variants: ["Acero Inoxidable"],
     defaultVariant: "Acero Inoxidable",
+    imageFit: "cover",
   },
   {
     id: "prod-5",
@@ -123,6 +127,7 @@ export const PRODUCTS: Product[] = [
     variantsLabel: "Molienda del Café:",
     variants: ["Molido", "En Grano"],
     defaultVariant: "Molido",
+    imageFit: "cover",
   },
   {
     id: "prod-6",
@@ -147,5 +152,6 @@ export const PRODUCTS: Product[] = [
     variantsLabel: "Molienda del Café:",
     variants: ["Molido", "En Grano"],
     defaultVariant: "Molido",
+    imageFit: "cover",
   },
 ];

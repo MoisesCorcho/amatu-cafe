@@ -16,6 +16,7 @@ export interface Product {
   variantsLabel?: string;
   variants: string[];
   defaultVariant: string;
+  imageFit?: "cover" | "contain";
 }
 
 export interface CartItem {

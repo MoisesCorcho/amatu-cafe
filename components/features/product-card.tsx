@@ -29,6 +29,7 @@ export function ProductCard({ product, onQuickView }: ProductCardProps) {
   };
 
   const hasSecondaryImage = product.images.length > 1;
+  const isCover = product.imageFit === "cover";
 
   return (
     <div className="bg-amatu-deep border border-white/10 rounded-3xl overflow-hidden hover:border-amatu-gold/50 transition-all duration-300 flex flex-col justify-between group shadow-xl">
@@ -36,7 +37,9 @@ export function ProductCard({ product, onQuickView }: ProductCardProps) {
         <div>
           {/* Product Image Area with Hover Switch */}
           <div
-            className="relative h-64 flex items-center justify-center p-4 bg-white/[0.02] rounded-2xl mb-4 cursor-pointer overflow-hidden group/img"
+            className={`relative h-64 flex items-center justify-center ${
+              isCover ? "" : "p-4"
+            } bg-white/[0.02] rounded-2xl mb-4 cursor-pointer overflow-hidden group/img`}
             onClick={() => onQuickView(product)}
             title="Haz clic para ver detalles y fotos"
           >
@@ -53,20 +56,24 @@ export function ProductCard({ product, onQuickView }: ProductCardProps) {
                 src={product.images[0]}
                 alt={product.name}
                 fill
-                className={`object-contain transition-all duration-500 ease-out group-hover:scale-105 ${
-                  hasSecondaryImage ? "group-hover:opacity-0" : ""
-                }`}
+                className={`transition-all duration-500 ease-out group-hover:scale-105 ${
+                  isCover ? "object-cover" : "object-contain"
+                } ${hasSecondaryImage ? "group-hover:opacity-0" : ""}`}
               />
             </div>
 
             {/* Secondary Image on Hover */}
             {hasSecondaryImage && (
-              <div className="absolute inset-0 w-full h-full p-4 opacity-0 transition-all duration-500 ease-out group-hover:scale-105 group-hover:opacity-100">
+              <div
+                className={`absolute inset-0 w-full h-full ${
+                  isCover ? "" : "p-4"
+                } opacity-0 transition-all duration-500 ease-out group-hover:scale-105 group-hover:opacity-100`}
+              >
                 <Image
                   src={product.images[1]}
                   alt={`${product.name} vista secundaria`}
                   fill
-                  className="object-contain"
+                  className={isCover ? "object-cover" : "object-contain"}
                 />
               </div>
             )}
