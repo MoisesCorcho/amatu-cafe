@@ -16,12 +16,6 @@ export function HeroSection() {
         <div className="grid grid-cols-1 xl:grid-cols-12 gap-12 items-center">
           {/* Left Column: Copy & Value Proposition */}
           <div className="xl:col-span-7 space-y-6 text-center xl:text-left">
-            {/* Origin Badge */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/5 border border-amatu-gold/30 text-amatu-gold text-xs uppercase tracking-widest font-semibold">
-              <span className="w-2 h-2 rounded-full bg-amatu-gold animate-pulse" />
-              Del grano a tu alma • Origen Huila
-            </div>
-
             {/* Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-white leading-tight">
               Aroma dulce con notas a{" "}
@@ -36,46 +30,46 @@ export function HeroSection() {
               grano a grano para una taza dulce y balanceada.
             </p>
 
-            {/* Quick Tasting Attributes */}
-            <div className="grid grid-cols-3 gap-4 pt-2 max-w-lg mx-auto xl:mx-0">
-              <div className="border-l-2 border-amatu-gold/50 pl-3 text-left">
-                <span className="block text-xs uppercase text-stone-400 tracking-wider">
+            {/* Quick Tasting & Origin Attributes - Solid Golden Bar */}
+            <div className="grid grid-cols-3 max-w-xl w-full mx-auto xl:mx-0 py-3 px-2 sm:p-4 bg-amatu-gold rounded-sm divide-x divide-black/15 shadow-lg shadow-amatu-gold/15 items-start sm:items-center">
+              <div className="px-1.5 sm:px-3 text-center flex flex-col justify-start sm:justify-center">
+                <span className="block text-[10px] sm:text-xs uppercase tracking-wider text-black/75 font-bold">
                   Variedad
                 </span>
-                <span className="font-serif text-lg text-white font-semibold">
+                <span className="font-serif text-sm sm:text-base md:text-lg text-black font-bold block mt-0.5 leading-snug">
                   Excelso
                 </span>
               </div>
-              <div className="border-l-2 border-amatu-gold/50 pl-3 text-left">
-                <span className="block text-xs uppercase text-stone-400 tracking-wider">
+              <div className="px-1.5 sm:px-3 text-center flex flex-col justify-start sm:justify-center">
+                <span className="block text-[10px] sm:text-xs uppercase tracking-wider text-black/75 font-bold">
                   Altitud
                 </span>
-                <span className="font-serif text-lg text-white font-semibold">
-                  1.850-1.930m
+                <span className="font-serif text-sm sm:text-base md:text-lg text-black font-bold block mt-0.5 leading-snug">
+                  1.850 - 1.930 m
                 </span>
               </div>
-              <div className="border-l-2 border-amatu-gold/50 pl-3 text-left">
-                <span className="block text-xs uppercase text-stone-400 tracking-wider">
+              <div className="px-1.5 sm:px-3 text-center flex flex-col justify-start sm:justify-center">
+                <span className="block text-[10px] sm:text-xs uppercase tracking-wider text-black/75 font-bold">
                   Origen
                 </span>
-                <span className="font-serif text-lg text-white font-semibold">
-                  Huila, COL
+                <span className="font-serif text-sm sm:text-base md:text-lg text-black font-bold block mt-0.5 leading-snug">
+                  Huila, Colombia
                 </span>
               </div>
             </div>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row items-center justify-center xl:justify-start gap-4 pt-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 max-w-xl w-full mx-auto xl:mx-0">
               <a
                 href="#catalogo"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-amatu-gold hover:bg-amatu-gold-light text-stone-950 font-semibold px-8 py-4 rounded-full transition-all transform hover:-translate-y-0.5 shadow-lg shadow-amatu-gold/20"
+                className="w-full inline-flex items-center justify-center gap-3 bg-[#932619] hover:bg-[#b02e1f] text-stone-100 hover:text-white font-semibold px-8 py-4 rounded-sm transition-colors shadow-lg shadow-[#932619]/25 hover:shadow-[#932619]/40 text-center"
               >
                 <Coffee className="w-5 h-5" />
                 <span>Ver Catálogo</span>
               </a>
               <a
                 href="#historia"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-white/20 hover:border-amatu-gold text-stone-300 hover:text-white px-7 py-4 rounded-full transition-all"
+                className="w-full inline-flex items-center justify-center gap-2 border border-white/20 hover:border-white text-stone-300 hover:text-white font-semibold px-7 py-4 rounded-sm transition-colors text-center"
               >
                 <span>Nuestra Historia</span>
                 <ArrowRight className="w-4 h-4" />

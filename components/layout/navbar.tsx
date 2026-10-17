@@ -3,9 +3,9 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { NAV_ITEMS } from "@/data/navigation";
+import { NAV_ITEMS, CONTACT_INFO } from "@/data/navigation";
 import { useCart } from "@/context/cart-context";
-import { ShoppingBag, Menu, X } from "lucide-react";
+import { ShoppingBag, Menu, X, MessageCircle } from "lucide-react";
 
 export function Navbar() {
   const { openCart, totalItems } = useCart();
@@ -84,8 +84,20 @@ export function Navbar() {
           })}
         </nav>
 
-        {/* Action Controls (Cart & Mobile Menu) */}
+        {/* Action Controls (Direct WhatsApp CTA, Cart & Mobile Menu) */}
         <div className="flex items-center gap-3">
+          <a
+            href={`https://wa.me/${CONTACT_INFO.whatsappNumber}?text=${encodeURIComponent(
+              "Hola Amatu Café, quisiera más información sobre sus productos."
+            )}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden sm:inline-flex items-center gap-2 bg-[#bf8432] hover:bg-amatu-gold-light text-stone-950 font-semibold text-xs tracking-wider uppercase px-5 py-2.5 rounded-sm transition-colors"
+          >
+            <MessageCircle className="w-4 h-4" />
+            <span>Pedir por WhatsApp</span>
+          </a>
+
           <button
             onClick={openCart}
             className="relative p-2.5 rounded-full bg-white/5 border border-white/10 hover:border-amatu-gold/50 text-stone-200 hover:text-white transition-all cursor-pointer"
@@ -123,6 +135,17 @@ export function Navbar() {
                 {item.label}
               </a>
             ))}
+            <a
+              href={`https://wa.me/${CONTACT_INFO.whatsappNumber}?text=${encodeURIComponent(
+                "Hola Amatu Café, quisiera más información sobre sus productos."
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex sm:hidden items-center justify-center gap-2 bg-[#bf8432] text-stone-950 font-semibold text-xs tracking-wider uppercase px-5 py-3 rounded-sm mt-2"
+            >
+              <MessageCircle className="w-4 h-4" />
+              <span>Pedir por WhatsApp</span>
+            </a>
           </nav>
         </div>
       )}

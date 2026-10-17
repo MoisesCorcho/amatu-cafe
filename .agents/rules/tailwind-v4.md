@@ -19,8 +19,8 @@ The project uses the following established design system tokens:
 - `amatu-bean`: `#2A1A12` (Earthy deep tone)
 
 ### Typography
-- **Serif (`font-serif`)**: Cormorant Garamond (Used for editorial headlines, luxury feel)
-- **Sans (`font-sans`)**: Plus Jakarta Sans (Used for body, UI labels, navigations)
+- **Serif (`font-serif`)**: IBM Plex Serif (Headings, titles, prices)
+- **Sans (`font-sans`)**: IBM Plex Sans (Body text, UI labels, navigations, CTAs)
 
 ### Animations & Utilities
 - Floating animation: `animate-float`
