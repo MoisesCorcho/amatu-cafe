@@ -42,3 +42,5 @@ next-env.d.ts
 
 .engram
 .codegraph
+# Local AI runtime state
+.atl/
