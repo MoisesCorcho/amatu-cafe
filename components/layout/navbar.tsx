@@ -14,28 +14,45 @@ export function Navbar() {
   const [activeSection, setActiveSection] = useState("hero");
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-
-      // Simple active link detection
-      const sections = NAV_ITEMS.map((item) => item.href.replace("#", ""));
-      const scrollPosition = window.scrollY + 200;
-
-      for (const sectionId of sections) {
-        const el = document.getElementById(sectionId);
-        if (el) {
-          const top = el.offsetTop;
-          const height = el.offsetHeight;
-          if (scrollPosition >= top && scrollPosition < top + height) {
-            setActiveSection(sectionId);
-            break;
-          }
-        }
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 20);
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    handleScroll();
+
+    // IntersectionObserver for active section detection without layout thrashing
+    const sectionIds = NAV_ITEMS.map((item) => item.href.replace("#", ""));
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      {
+        rootMargin: "-20% 0px -60% 0px",
+        threshold: 0,
+      }
+    );
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      observer.disconnect();
+    };
   }, []);
 
   return (
@@ -52,6 +69,7 @@ export function Navbar() {
               src="/assets/Iteracion-2-logo.png"
               alt="Amatu Café Logo"
               fill
+              sizes="(max-width: 640px) 112px, 128px"
               className="object-contain transition-transform duration-300 group-hover:scale-105"
               priority
             />
@@ -90,7 +108,7 @@ export function Navbar() {
             )}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:inline-flex items-center gap-2 bg-[#bf8432] hover:bg-amatu-gold-light text-stone-950 font-semibold text-xs tracking-wider uppercase px-5 py-2.5 rounded-sm transition-colors"
+            className="hidden sm:inline-flex items-center gap-2 bg-amatu-gold hover:bg-amatu-gold-light text-stone-950 font-semibold text-xs tracking-wider uppercase px-5 py-2.5 rounded-sm transition-colors"
           >
             <MessageCircle className="w-4 h-4" />
             <span>Pedir por WhatsApp</span>
@@ -112,7 +130,9 @@ export function Navbar() {
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="md:hidden p-2.5 rounded-full bg-white/5 border border-white/10 text-stone-200 hover:text-white transition-all cursor-pointer"
-            aria-label="Menú principal"
+            aria-label={mobileMenuOpen ? "Cerrar menú principal" : "Abrir menú principal"}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-nav-drawer"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -121,7 +141,10 @@ export function Navbar() {
 
       {/* Mobile Drawer Navigation */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-amatu-deep border-b border-white/10 px-6 py-6 space-y-4 animate-in slide-in-from-top duration-200">
+        <div
+          id="mobile-nav-drawer"
+          className="md:hidden bg-amatu-deep border-b border-white/10 px-6 py-6 space-y-4 animate-in slide-in-from-top duration-200"
+        >
           <nav className="flex flex-col gap-3">
             {NAV_ITEMS.map((item) => (
               <a
@@ -139,7 +162,7 @@ export function Navbar() {
               )}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex sm:hidden items-center justify-center gap-2 bg-[#bf8432] text-stone-950 font-semibold text-xs tracking-wider uppercase px-5 py-3 rounded-sm mt-2"
+              className="inline-flex sm:hidden items-center justify-center gap-2 bg-amatu-gold hover:bg-amatu-gold-light text-stone-950 font-semibold text-xs tracking-wider uppercase px-5 py-3 rounded-sm mt-2 transition-colors"
             >
               <MessageCircle className="w-4 h-4" />
               <span>Pedir por WhatsApp</span>
