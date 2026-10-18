@@ -14,8 +14,13 @@ export function AboutSection() {
   return (
     <section
       id="nosotros"
-      className="py-20 md:py-28 bg-amatu-deep relative border-t border-white/10 overflow-hidden"
+      className="py-20 md:py-28 bg-gradient-to-b from-amatu-charcoal via-amatu-deep to-amatu-deep relative overflow-hidden"
     >
+      {/* Golden Light Beam & Spotlight Transition from Catalog */}
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-amatu-gold/45 to-transparent z-20" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 rotate-45 bg-amatu-gold shadow-[0_0_12px_rgba(212,155,75,0.8)] z-20 pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-72 sm:w-96 md:w-[600px] h-28 sm:h-36 bg-gradient-to-b from-amatu-gold/15 via-amatu-gold/5 to-transparent blur-2xl pointer-events-none -translate-y-1/2 z-10" />
+
       {/* Background glow accents */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-96 bg-amatu-gold/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute -bottom-10 right-10 w-80 h-80 bg-amatu-cherry/5 rounded-full blur-3xl pointer-events-none" />
