@@ -60,7 +60,7 @@ export function CartDrawer() {
           </div>
           <button
             onClick={closeCart}
-            className="w-9 h-9 rounded-full bg-white/5 border border-white/10 text-stone-400 hover:text-white hover:bg-white/10 flex items-center justify-center transition-all cursor-pointer"
+            className="w-9 h-9 rounded-sm bg-white/5 border border-white/10 text-stone-400 hover:text-white hover:bg-white/10 flex items-center justify-center transition-all cursor-pointer"
             aria-label="Cerrar Carrito"
           >
             <X className="w-5 h-5" />
@@ -81,10 +81,10 @@ export function CartDrawer() {
             cart.map((item) => (
               <div
                 key={`${item.id}-${item.variant}`}
-                className="p-3.5 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-between gap-3"
+                className="p-3.5 bg-white/5 border border-white/10 rounded-xl flex items-center justify-between gap-3"
               >
                 {item.image && (
-                  <div className="w-12 h-12 relative flex-shrink-0 bg-stone-900 rounded-lg overflow-hidden border border-white/5">
+                  <div className="w-12 h-12 relative flex-shrink-0 bg-stone-900 rounded-sm overflow-hidden border border-white/5">
                     <Image
                       src={item.image}
                       alt={item.name}
@@ -104,7 +104,7 @@ export function CartDrawer() {
                 <div className="flex items-center gap-1.5 flex-shrink-0">
                   <button
                     onClick={() => updateQuantity(item.id, item.variant, -1)}
-                    className="w-7 h-7 rounded-lg bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition-all font-bold text-xs cursor-pointer"
+                    className="w-7 h-7 rounded-sm bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition-all font-bold text-xs cursor-pointer"
                     aria-label="Disminuir cantidad"
                   >
                     -
@@ -114,7 +114,7 @@ export function CartDrawer() {
                   </span>
                   <button
                     onClick={() => updateQuantity(item.id, item.variant, 1)}
-                    className="w-7 h-7 rounded-lg bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition-all font-bold text-xs cursor-pointer"
+                    className="w-7 h-7 rounded-sm bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition-all font-bold text-xs cursor-pointer"
                     aria-label="Aumentar cantidad"
                   >
                     +
@@ -142,7 +142,7 @@ export function CartDrawer() {
                 placeholder="Tu Nombre completo"
                 value={customerName}
                 onChange={(e) => setCustomerName(e.target.value)}
-                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white placeholder-stone-500 focus:outline-none focus:border-amatu-gold transition-colors"
+                className="w-full bg-white/5 border border-white/10 rounded-sm px-4 py-2.5 text-xs text-white placeholder-stone-500 focus:outline-none focus:border-amatu-gold transition-colors"
                 required
               />
               <input
@@ -150,7 +150,7 @@ export function CartDrawer() {
                 placeholder="Ciudad / Municipio de envío"
                 value={customerCity}
                 onChange={(e) => setCustomerCity(e.target.value)}
-                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white placeholder-stone-500 focus:outline-none focus:border-amatu-gold transition-colors"
+                className="w-full bg-white/5 border border-white/10 rounded-sm px-4 py-2.5 text-xs text-white placeholder-stone-500 focus:outline-none focus:border-amatu-gold transition-colors"
                 required
               />
             </div>
@@ -164,7 +164,7 @@ export function CartDrawer() {
 
             <button
               type="submit"
-              className="w-full bg-[#25D366] hover:bg-[#20ba59] text-stone-950 font-bold py-3.5 px-6 rounded-2xl flex items-center justify-center gap-2 shadow-lg shadow-[#25D366]/20 transition-all active:scale-[0.98] cursor-pointer"
+              className="w-full bg-[#25D366] hover:bg-[#20ba59] text-stone-950 font-bold py-3.5 px-6 rounded-sm flex items-center justify-center gap-2 shadow-lg shadow-[#25D366]/20 transition-all active:scale-[0.98] cursor-pointer"
             >
               <MessageCircle className="w-5 h-5 fill-current" />
               <span>Completar Pedido por WhatsApp</span>

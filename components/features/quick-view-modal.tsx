@@ -76,7 +76,7 @@ function QuickViewModalDialog({
       />
 
       {/* Modal / Bottom Sheet Card */}
-      <div className="relative w-full max-w-4xl max-h-[88dvh] sm:max-h-[82dvh] md:max-h-[560px] lg:max-h-[580px] bg-amatu-deep border border-white/10 rounded-t-[28px] sm:rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row min-h-0 z-10 animate-in fade-in duration-200 slide-in-from-bottom-8 sm:slide-in-from-bottom-0 sm:zoom-in-95">
+      <div className="relative w-full max-w-4xl max-h-[88dvh] sm:max-h-[82dvh] md:max-h-[560px] lg:max-h-[580px] bg-amatu-deep border border-white/10 rounded-t-[24px] sm:rounded-2xl overflow-hidden shadow-2xl flex flex-col md:flex-row min-h-0 z-10 animate-in fade-in duration-200 slide-in-from-bottom-8 sm:slide-in-from-bottom-0 sm:zoom-in-95">
         {/* Mobile drag handle affordance */}
         <div
           className="w-full flex justify-center pt-2.5 pb-1 md:hidden select-none cursor-pointer"
@@ -89,7 +89,7 @@ function QuickViewModalDialog({
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-3 right-3 sm:top-4 sm:right-4 z-20 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-stone-900/80 border border-white/10 text-stone-300 hover:text-white hover:bg-stone-800 flex items-center justify-center transition-all cursor-pointer shadow-md"
+          className="absolute top-3 right-3 sm:top-4 sm:right-4 z-20 w-8 h-8 sm:w-10 sm:h-10 rounded-sm bg-stone-900/80 border border-white/10 text-stone-300 hover:text-white hover:bg-stone-800 flex items-center justify-center transition-all cursor-pointer shadow-md"
           aria-label="Cerrar modal"
         >
           <X className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -97,9 +97,9 @@ function QuickViewModalDialog({
 
         {/* Column 1: Image Gallery */}
         <div className="w-full md:w-1/2 p-4 sm:p-5 md:p-6 lg:p-7 bg-white/[0.02] border-b md:border-b-0 md:border-r border-white/10 flex flex-col justify-center items-center gap-3 sm:gap-4 flex-shrink-0 md:min-h-0">
-          <div className="relative h-44 sm:h-52 md:h-64 lg:h-72 w-full flex items-center justify-center rounded-2xl overflow-hidden bg-stone-950/40 p-3 sm:p-4">
+          <div className="relative h-44 sm:h-52 md:h-64 lg:h-72 w-full flex items-center justify-center rounded-xl overflow-hidden bg-stone-950/40 p-3 sm:p-4">
             <span
-              className={`absolute top-2.5 left-2.5 sm:top-3 sm:left-3 text-[10px] font-bold uppercase tracking-wider px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full border z-10 ${product.badgeColor}`}
+              className={`absolute top-2.5 left-2.5 sm:top-3 sm:left-3 text-[10px] font-bold uppercase tracking-wider px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-sm border z-10 ${product.badgeColor}`}
             >
               {product.badge}
             </span>
@@ -125,7 +125,7 @@ function QuickViewModalDialog({
                   key={idx}
                   type="button"
                   onClick={() => setSelectedImage(img)}
-                  className={`w-11 h-11 sm:w-12 sm:h-12 md:w-13 md:h-13 rounded-xl border flex-shrink-0 relative overflow-hidden bg-stone-900 p-1 transition-all cursor-pointer ${
+                  className={`w-11 h-11 sm:w-12 sm:h-12 md:w-13 md:h-13 rounded-lg border flex-shrink-0 relative overflow-hidden bg-stone-900 p-1 transition-all cursor-pointer ${
                     selectedImage === img
                       ? "border-amatu-gold ring-2 ring-amatu-gold/30"
                       : "border-white/10 opacity-60 hover:opacity-100"
@@ -199,7 +199,7 @@ function QuickViewModalDialog({
                   {product.description}
                 </p>
               ) : (
-                <div className="bg-white/5 border border-white/10 rounded-2xl p-3 sm:p-3.5 space-y-1.5 divide-y divide-white/5 text-xs animate-in fade-in duration-150">
+                <div className="bg-white/5 border border-white/10 rounded-xl p-3 sm:p-3.5 space-y-1.5 divide-y divide-white/5 text-xs animate-in fade-in duration-150">
                   {product.specs.map((spec, i) => (
                     <div key={i} className="flex justify-between pt-1 gap-2">
                       <span className="text-stone-400">{spec.label}:</span>
@@ -224,7 +224,7 @@ function QuickViewModalDialog({
                       key={v}
                       type="button"
                       onClick={() => setSelectedVariant(v)}
-                      className={`px-3 py-1.5 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${
+                      className={`px-3 py-1.5 rounded-sm text-xs font-semibold border transition-all cursor-pointer ${
                         selectedVariant === v
                           ? "bg-amatu-gold text-stone-950 border-amatu-gold font-bold shadow-md shadow-amatu-gold/20"
                           : "border-white/10 text-stone-300 hover:border-amatu-gold"
@@ -241,11 +241,11 @@ function QuickViewModalDialog({
           {/* Sticky / Anchored Actions Footer */}
           <div className="p-3 sm:p-4 md:p-5 lg:p-6 pt-3 border-t border-white/10 bg-amatu-deep/95 backdrop-blur-md flex-shrink-0">
             <div className="flex items-center gap-2.5 sm:gap-3">
-              <div className="flex items-center border border-white/10 rounded-xl bg-white/5 p-0.5 sm:p-1">
+              <div className="flex items-center border border-white/10 rounded-sm bg-white/5 p-0.5 sm:p-1">
                 <button
                   type="button"
                   onClick={() => setQuantity((q) => Math.max(1, q - 1))}
-                  className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-white/10 text-white flex items-center justify-center hover:bg-white/20 font-bold text-xs sm:text-sm cursor-pointer"
+                  className="w-7 h-7 sm:w-8 sm:h-8 rounded-sm bg-white/10 text-white flex items-center justify-center hover:bg-white/20 font-bold text-xs sm:text-sm cursor-pointer"
                   aria-label="Restar una unidad"
                 >
                   -
@@ -256,7 +256,7 @@ function QuickViewModalDialog({
                 <button
                   type="button"
                   onClick={() => setQuantity((q) => q + 1)}
-                  className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-white/10 text-white flex items-center justify-center hover:bg-white/20 font-bold text-xs sm:text-sm cursor-pointer"
+                  className="w-7 h-7 sm:w-8 sm:h-8 rounded-sm bg-white/10 text-white flex items-center justify-center hover:bg-white/20 font-bold text-xs sm:text-sm cursor-pointer"
                   aria-label="Sumar una unidad"
                 >
                   +
@@ -267,7 +267,7 @@ function QuickViewModalDialog({
                 type="button"
                 onClick={handleAddToCart}
                 disabled={addedNotice}
-                className={`flex-1 py-2.5 sm:py-3 px-4 sm:px-6 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all cursor-pointer ${
+                className={`flex-1 py-2.5 sm:py-3 px-4 sm:px-6 rounded-sm font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all cursor-pointer ${
                   addedNotice
                     ? "bg-emerald-600 text-white"
                     : "bg-amatu-gold text-stone-950 hover:bg-amatu-gold-light active:scale-95 shadow-lg shadow-amatu-gold/20"

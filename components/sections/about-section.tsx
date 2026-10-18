@@ -46,8 +46,8 @@ export function AboutSection() {
 
           {/* Trust Badges */}
           <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-4">
-            <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-amatu-gold/40 transition-colors flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-amatu-gold/15 flex items-center justify-center text-amatu-gold shrink-0">
+            <div className="p-4 rounded-xl bg-white/[0.03] border border-white/10 hover:border-amatu-gold/40 transition-colors flex items-center gap-4">
+              <div className="w-12 h-12 rounded-lg bg-amatu-gold/15 flex items-center justify-center text-amatu-gold shrink-0">
                 <Award className="w-6 h-6" />
               </div>
               <div>
@@ -60,8 +60,8 @@ export function AboutSection() {
               </div>
             </div>
 
-            <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-amatu-gold/40 transition-colors flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-amatu-gold/15 flex items-center justify-center text-amatu-gold shrink-0">
+            <div className="p-4 rounded-xl bg-white/[0.03] border border-white/10 hover:border-amatu-gold/40 transition-colors flex items-center gap-4">
+              <div className="w-12 h-12 rounded-lg bg-amatu-gold/15 flex items-center justify-center text-amatu-gold shrink-0">
                 <Users className="w-6 h-6" />
               </div>
               <div>
@@ -74,8 +74,8 @@ export function AboutSection() {
               </div>
             </div>
 
-            <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-amatu-gold/40 transition-colors flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-amatu-gold/15 flex items-center justify-center text-amatu-gold shrink-0">
+            <div className="p-4 rounded-xl bg-white/[0.03] border border-white/10 hover:border-amatu-gold/40 transition-colors flex items-center gap-4">
+              <div className="w-12 h-12 rounded-lg bg-amatu-gold/15 flex items-center justify-center text-amatu-gold shrink-0">
                 <Truck className="w-6 h-6" />
               </div>
               <div>
@@ -114,7 +114,7 @@ export function AboutSection() {
           {FICCA_PHOTOS.map((photo, idx) => (
             <div
               key={`set1-${idx}`}
-              className="w-64 sm:w-72 md:w-80 h-80 sm:h-96 shrink-0 mx-3 rounded-3xl overflow-hidden border border-white/10 hover:border-amatu-gold/50 transition-all duration-300 relative group shadow-xl"
+              className="w-64 sm:w-72 md:w-80 h-80 sm:h-96 shrink-0 mx-3 rounded-2xl overflow-hidden border border-white/10 hover:border-amatu-gold/50 transition-all duration-300 relative group shadow-xl"
             >
               <Image
                 src={photo.src}
@@ -124,7 +124,7 @@ export function AboutSection() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex items-end p-5">
                 <div>
-                  <span className="text-[10px] uppercase font-bold tracking-wider text-amatu-gold bg-black/60 px-2 py-0.5 rounded-full border border-amatu-gold/30">
+                  <span className="text-[10px] uppercase font-bold tracking-wider text-amatu-gold bg-black/60 px-2 py-0.5 rounded-sm border border-amatu-gold/30">
                     {photo.badge}
                   </span>
                   <p className="text-xs font-medium text-stone-200 mt-1.5">
@@ -139,7 +139,7 @@ export function AboutSection() {
           {FICCA_PHOTOS.map((photo, idx) => (
             <div
               key={`set2-${idx}`}
-              className="w-64 sm:w-72 md:w-80 h-80 sm:h-96 shrink-0 mx-3 rounded-3xl overflow-hidden border border-white/10 hover:border-amatu-gold/50 transition-all duration-300 relative group shadow-xl"
+              className="w-64 sm:w-72 md:w-80 h-80 sm:h-96 shrink-0 mx-3 rounded-2xl overflow-hidden border border-white/10 hover:border-amatu-gold/50 transition-all duration-300 relative group shadow-xl"
               aria-hidden="true"
             >
               <Image
@@ -150,7 +150,7 @@ export function AboutSection() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex items-end p-5">
                 <div>
-                  <span className="text-[10px] uppercase font-bold tracking-wider text-amatu-gold bg-black/60 px-2 py-0.5 rounded-full border border-amatu-gold/30">
+                  <span className="text-[10px] uppercase font-bold tracking-wider text-amatu-gold bg-black/60 px-2 py-0.5 rounded-sm border border-amatu-gold/30">
                     {photo.badge}
                   </span>
                   <p className="text-xs font-medium text-stone-200 mt-1.5">
