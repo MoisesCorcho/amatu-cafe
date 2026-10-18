@@ -37,11 +37,19 @@ function QuickViewModalDialog({
     };
     window.addEventListener("keydown", handleKeyDown);
     const originalOverflow = document.body.style.overflow;
+    const originalPaddingRight = document.body.style.paddingRight;
+    const scrollbarWidth =
+      window.innerWidth - document.documentElement.clientWidth;
+
     document.body.style.overflow = "hidden";
+    if (scrollbarWidth > 0) {
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
+    }
 
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = originalOverflow;
+      document.body.style.paddingRight = originalPaddingRight;
     };
   }, [onClose]);
 
@@ -148,8 +156,8 @@ function QuickViewModalDialog({
         <div className="w-full md:w-1/2 flex flex-col flex-1 min-h-0 bg-amatu-deep">
           {/* Scrollable details container */}
           <div className="flex-1 overflow-y-auto p-4 sm:p-5 md:p-6 lg:p-7 space-y-4 overscroll-contain custom-scrollbar">
-            {/* Header: Title, Subtitle, Price */}
-            <div>
+            {/* Header: Title, Subtitle, Price with safe padding against Close button */}
+            <div className="pr-10 sm:pr-12 md:pr-14">
               <h2
                 id="qv-title"
                 className="font-serif text-xl sm:text-2xl font-bold text-white leading-tight"
@@ -184,7 +192,7 @@ function QuickViewModalDialog({
                   className={`pb-2 px-3 font-semibold transition-all cursor-pointer border-b-2 -mb-[5px] ${
                     activeTab === "specs"
                       ? "border-amatu-gold text-amatu-gold font-bold"
-                      : "border-transparent text-stone-400 hover:text-white"
+                    : "border-transparent text-stone-400 hover:text-white"
                   }`}
                 >
                   Ficha Técnica
@@ -199,11 +207,16 @@ function QuickViewModalDialog({
                   {product.description}
                 </p>
               ) : (
-                <div className="bg-white/5 border border-white/10 rounded-xl p-3 sm:p-3.5 space-y-1.5 divide-y divide-white/5 text-xs animate-in fade-in duration-150">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 max-h-[190px] overflow-y-auto overscroll-contain custom-scrollbar pr-1 animate-in fade-in duration-150">
                   {product.specs.map((spec, i) => (
-                    <div key={i} className="flex justify-between pt-1 gap-2">
-                      <span className="text-stone-400">{spec.label}:</span>
-                      <span className="text-stone-200 font-semibold text-right">
+                    <div
+                      key={i}
+                      className="bg-white/[0.04] border border-white/10 rounded-sm p-2 sm:p-2.5 flex flex-col justify-between"
+                    >
+                      <span className="text-[10px] uppercase font-bold tracking-wider text-amatu-gold/90">
+                        {spec.label}
+                      </span>
+                      <span className="text-xs text-stone-200 font-medium mt-0.5 leading-snug">
                         {spec.value}
                       </span>
                     </div>

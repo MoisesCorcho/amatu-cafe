@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useCart } from "@/context/cart-context";
 import { X, Trash2, Coffee, MessageCircle } from "lucide-react";
 import Image from "next/image";
@@ -20,6 +20,31 @@ export function CartDrawer() {
 
   const [customerName, setCustomerName] = useState("");
   const [customerCity, setCustomerCity] = useState("");
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const originalOverflow = document.body.style.overflow;
+    const originalPaddingRight = document.body.style.paddingRight;
+    const scrollbarWidth =
+      window.innerWidth - document.documentElement.clientWidth;
+
+    document.body.style.overflow = "hidden";
+    if (scrollbarWidth > 0) {
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
+    }
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeCart();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      document.body.style.paddingRight = originalPaddingRight;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen, closeCart]);
 
   const handleCheckout = (e: React.FormEvent) => {
     e.preventDefault();
@@ -68,7 +93,7 @@ export function CartDrawer() {
         </div>
 
         {/* Items List */}
-        <div className="flex-1 overflow-y-auto p-6 space-y-4">
+        <div className="flex-1 overflow-y-auto p-6 space-y-4 overscroll-contain custom-scrollbar">
           {cart.length === 0 ? (
             <div className="text-center py-16 text-stone-500">
               <Coffee className="w-12 h-12 mx-auto stroke-1 mb-3 text-stone-600" />
