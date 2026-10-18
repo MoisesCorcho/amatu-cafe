@@ -2,6 +2,13 @@ import React from "react";
 import Image from "next/image";
 import { Award, Users, Truck, Sparkles } from "lucide-react";
 import { FICCA_PHOTOS } from "@/data/ficca";
+import { ABOUT_TRUST_BADGES } from "@/data/brand";
+
+const TRUST_ICON_MAP = {
+  award: Award,
+  users: Users,
+  truck: Truck,
+};
 
 export function AboutSection() {
   return (
@@ -46,47 +53,27 @@ export function AboutSection() {
 
           {/* Trust Badges */}
           <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-4">
-            <div className="p-4 rounded-xl bg-white/[0.03] border border-white/10 hover:border-amatu-gold/40 transition-colors flex items-center gap-4">
-              <div className="w-12 h-12 rounded-lg bg-amatu-gold/15 flex items-center justify-center text-amatu-gold shrink-0">
-                <Award className="w-6 h-6" />
-              </div>
-              <div>
-                <span className="block font-bold text-white text-sm">
-                  FICCA Huila 2025
-                </span>
-                <span className="text-xs text-stone-400">
-                  Participantes oficiales en feria internacional
-                </span>
-              </div>
-            </div>
-
-            <div className="p-4 rounded-xl bg-white/[0.03] border border-white/10 hover:border-amatu-gold/40 transition-colors flex items-center gap-4">
-              <div className="w-12 h-12 rounded-lg bg-amatu-gold/15 flex items-center justify-center text-amatu-gold shrink-0">
-                <Users className="w-6 h-6" />
-              </div>
-              <div>
-                <span className="block font-bold text-white text-sm">
-                  7 Hermanos
-                </span>
-                <span className="text-xs text-stone-400">
-                  Tradición campesina y pasión familiar
-                </span>
-              </div>
-            </div>
-
-            <div className="p-4 rounded-xl bg-white/[0.03] border border-white/10 hover:border-amatu-gold/40 transition-colors flex items-center gap-4">
-              <div className="w-12 h-12 rounded-lg bg-amatu-gold/15 flex items-center justify-center text-amatu-gold shrink-0">
-                <Truck className="w-6 h-6" />
-              </div>
-              <div>
-                <span className="block font-bold text-white text-sm">
-                  Envíos Nacionales
-                </span>
-                <span className="text-xs text-stone-400">
-                  Café fresco a cualquier ciudad de Colombia
-                </span>
-              </div>
-            </div>
+            {ABOUT_TRUST_BADGES.map((badge) => {
+              const Icon = TRUST_ICON_MAP[badge.icon];
+              return (
+                <div
+                  key={badge.id}
+                  className="p-4 rounded-xl bg-white/[0.03] border border-white/10 hover:border-amatu-gold/40 transition-colors flex items-center gap-4"
+                >
+                  <div className="w-12 h-12 rounded-lg bg-amatu-gold/15 flex items-center justify-center text-amatu-gold shrink-0">
+                    <Icon className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <span className="block font-bold text-white text-sm">
+                      {badge.title}
+                    </span>
+                    <span className="text-xs text-stone-400">
+                      {badge.description}
+                    </span>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
 

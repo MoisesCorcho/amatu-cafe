@@ -32,3 +32,33 @@ export interface NavItem {
   label: string;
   href: string;
 }
+
+export interface BrandAttribute {
+  label: string;
+  value: string;
+}
+
+export interface TrustBadge {
+  id: string;
+  title: string;
+  description: string;
+  icon: "award" | "users" | "truck";
+}
+
+export interface StoryHighlight {
+  title: string;
+  description: string;
+}
+
+export interface SocialLink {
+  handle: string;
+  url: string;
+}
+
+export interface ContactInfo {
+  phone: string;
+  whatsappNumber: string;
+  email: string;
+  location: string;
+  instagram: SocialLink;
+}

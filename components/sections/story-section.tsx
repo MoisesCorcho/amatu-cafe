@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { STORY_HIGHLIGHTS } from "@/data/brand";
 
 export function StorySection() {
   return (
@@ -64,24 +65,16 @@ export function StorySection() {
             </p>
 
             <div className="grid grid-cols-2 gap-6 pt-4 border-t border-stone-300">
-              <div>
-                <div className="text-amatu-gold-dark font-serif text-2xl font-bold">
-                  Variedades Nobles
+              {STORY_HIGHLIGHTS.map((item, idx) => (
+                <div key={idx}>
+                  <div className="text-amatu-gold-dark font-serif text-2xl font-bold">
+                    {item.title}
+                  </div>
+                  <p className="text-xs text-stone-600 mt-1">
+                    {item.description}
+                  </p>
                 </div>
-                <p className="text-xs text-stone-600 mt-1">
-                  Castillo, Colombia y blend insignia de Borbón Rosado con
-                  Supremo.
-                </p>
-              </div>
-              <div>
-                <div className="text-amatu-gold-dark font-serif text-2xl font-bold">
-                  De Calidad a Excelencia
-                </div>
-                <p className="text-xs text-stone-600 mt-1">
-                  Tueste artesanal calibrado para resaltar aroma y cuerpo
-                  sedoso.
-                </p>
-              </div>
+              ))}
             </div>
           </div>
         </div>
