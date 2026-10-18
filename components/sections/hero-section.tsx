@@ -85,14 +85,14 @@ export function HeroSection() {
             {/* Stage */}
             <div className="relative z-30 w-full max-w-[380px] sm:max-w-[500px] h-[480px] sm:h-[540px] select-none sm:translate-x-8 transition-transform duration-300">
               {/* Coffee Bag */}
-              <div className="absolute -top-10 -right-16 sm:right-0 z-20 -rotate-12 transform hover:-rotate-6 transition-transform duration-500 origin-bottom-right">
+              <div className="absolute -top-10 -right-24 sm:-right-10 z-20 -rotate-12 transform hover:-rotate-6 transition-transform duration-500 origin-bottom-right">
                 <Image
                   src="/assets/Iteracion-3.png"
                   alt="Bolsa de Café Especial Amatu Excelso 500g"
-                  width={340}
-                  height={460}
+                  width={375}
+                  height={506}
                   priority
-                  className="w-72 sm:w-80 h-auto object-contain product-shadow animate-float"
+                  className="w-80 sm:w-[352px] h-auto object-contain product-shadow animate-float"
                 />
               </div>
 
@@ -131,13 +131,13 @@ export function HeroSection() {
               </div>
 
               {/* Coffee Cup */}
-              <div className="absolute bottom-0 left-0 sm:-left-2 z-20 transform hover:scale-105 transition-transform duration-500">
+              <div className="absolute bottom-2 left-2 sm:left-4 z-20 transform hover:scale-105 transition-transform duration-500">
                 <Image
                   src="/assets/coffe_cup.png"
                   alt="Pocillo de Café Especial Amatu recién preparado"
-                  width={272}
-                  height={220}
-                  className="w-48 sm:w-68 h-auto object-contain drop-shadow-[0_24px_36px_rgba(0,0,0,0.85)]"
+                  width={200}
+                  height={160}
+                  className="w-36 sm:w-48 h-auto object-contain drop-shadow-[0_20px_30px_rgba(0,0,0,0.85)]"
                 />
               </div>
             </div>
