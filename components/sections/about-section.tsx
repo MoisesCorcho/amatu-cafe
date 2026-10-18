@@ -2,13 +2,25 @@ import React from "react";
 import Image from "next/image";
 import { Award, Users, Truck, Sparkles } from "lucide-react";
 import { FICCA_PHOTOS } from "@/data/ficca";
+import { ABOUT_TRUST_BADGES } from "@/data/brand";
+
+const TRUST_ICON_MAP = {
+  award: Award,
+  users: Users,
+  truck: Truck,
+};
 
 export function AboutSection() {
   return (
     <section
       id="nosotros"
-      className="py-20 md:py-28 bg-amatu-deep relative border-t border-white/10 overflow-hidden"
+      className="py-20 md:py-28 bg-gradient-to-b from-amatu-charcoal via-amatu-deep to-amatu-deep relative overflow-hidden"
     >
+      {/* Golden Light Beam & Spotlight Transition from Catalog */}
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-amatu-gold/45 to-transparent z-20" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 rotate-45 bg-amatu-gold shadow-[0_0_12px_rgba(212,155,75,0.8)] z-20 pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-72 sm:w-96 md:w-[600px] h-28 sm:h-36 bg-gradient-to-b from-amatu-gold/15 via-amatu-gold/5 to-transparent blur-2xl pointer-events-none -translate-y-1/2 z-10" />
+
       {/* Background glow accents */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-96 bg-amatu-gold/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute -bottom-10 right-10 w-80 h-80 bg-amatu-cherry/5 rounded-full blur-3xl pointer-events-none" />
@@ -46,47 +58,27 @@ export function AboutSection() {
 
           {/* Trust Badges */}
           <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-4">
-            <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-amatu-gold/40 transition-colors flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-amatu-gold/15 flex items-center justify-center text-amatu-gold shrink-0">
-                <Award className="w-6 h-6" />
-              </div>
-              <div>
-                <span className="block font-bold text-white text-sm">
-                  FICCA Huila 2025
-                </span>
-                <span className="text-xs text-stone-400">
-                  Participantes oficiales en feria internacional
-                </span>
-              </div>
-            </div>
-
-            <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-amatu-gold/40 transition-colors flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-amatu-gold/15 flex items-center justify-center text-amatu-gold shrink-0">
-                <Users className="w-6 h-6" />
-              </div>
-              <div>
-                <span className="block font-bold text-white text-sm">
-                  7 Hermanos
-                </span>
-                <span className="text-xs text-stone-400">
-                  Tradición campesina y pasión familiar
-                </span>
-              </div>
-            </div>
-
-            <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-amatu-gold/40 transition-colors flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-amatu-gold/15 flex items-center justify-center text-amatu-gold shrink-0">
-                <Truck className="w-6 h-6" />
-              </div>
-              <div>
-                <span className="block font-bold text-white text-sm">
-                  Envíos Nacionales
-                </span>
-                <span className="text-xs text-stone-400">
-                  Café fresco a cualquier ciudad de Colombia
-                </span>
-              </div>
-            </div>
+            {ABOUT_TRUST_BADGES.map((badge) => {
+              const Icon = TRUST_ICON_MAP[badge.icon];
+              return (
+                <div
+                  key={badge.id}
+                  className="p-4 rounded-xl bg-white/[0.03] border border-white/10 hover:border-amatu-gold/40 transition-colors flex items-center gap-4"
+                >
+                  <div className="w-12 h-12 rounded-lg bg-amatu-gold/15 flex items-center justify-center text-amatu-gold shrink-0">
+                    <Icon className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <span className="block font-bold text-white text-sm">
+                      {badge.title}
+                    </span>
+                    <span className="text-xs text-stone-400">
+                      {badge.description}
+                    </span>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
 
@@ -114,7 +106,7 @@ export function AboutSection() {
           {FICCA_PHOTOS.map((photo, idx) => (
             <div
               key={`set1-${idx}`}
-              className="w-64 sm:w-72 md:w-80 h-80 sm:h-96 shrink-0 mx-3 rounded-3xl overflow-hidden border border-white/10 hover:border-amatu-gold/50 transition-all duration-300 relative group shadow-xl"
+              className="w-64 sm:w-72 md:w-80 h-80 sm:h-96 shrink-0 mx-3 rounded-2xl overflow-hidden border border-white/10 hover:border-amatu-gold/50 transition-all duration-300 relative group shadow-xl"
             >
               <Image
                 src={photo.src}
@@ -124,7 +116,7 @@ export function AboutSection() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex items-end p-5">
                 <div>
-                  <span className="text-[10px] uppercase font-bold tracking-wider text-amatu-gold bg-black/60 px-2 py-0.5 rounded-full border border-amatu-gold/30">
+                  <span className="text-[10px] uppercase font-bold tracking-wider text-amatu-gold bg-black/60 px-2 py-0.5 rounded-sm border border-amatu-gold/30">
                     {photo.badge}
                   </span>
                   <p className="text-xs font-medium text-stone-200 mt-1.5">
@@ -139,7 +131,7 @@ export function AboutSection() {
           {FICCA_PHOTOS.map((photo, idx) => (
             <div
               key={`set2-${idx}`}
-              className="w-64 sm:w-72 md:w-80 h-80 sm:h-96 shrink-0 mx-3 rounded-3xl overflow-hidden border border-white/10 hover:border-amatu-gold/50 transition-all duration-300 relative group shadow-xl"
+              className="w-64 sm:w-72 md:w-80 h-80 sm:h-96 shrink-0 mx-3 rounded-2xl overflow-hidden border border-white/10 hover:border-amatu-gold/50 transition-all duration-300 relative group shadow-xl"
               aria-hidden="true"
             >
               <Image
@@ -150,7 +142,7 @@ export function AboutSection() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex items-end p-5">
                 <div>
-                  <span className="text-[10px] uppercase font-bold tracking-wider text-amatu-gold bg-black/60 px-2 py-0.5 rounded-full border border-amatu-gold/30">
+                  <span className="text-[10px] uppercase font-bold tracking-wider text-amatu-gold bg-black/60 px-2 py-0.5 rounded-sm border border-amatu-gold/30">
                     {photo.badge}
                   </span>
                   <p className="text-xs font-medium text-stone-200 mt-1.5">

@@ -32,20 +32,20 @@ export function ProductCard({ product, onQuickView }: ProductCardProps) {
   const isCover = product.imageFit === "cover";
 
   return (
-    <div className="bg-amatu-deep border border-white/10 rounded-3xl overflow-hidden hover:border-amatu-gold/50 transition-all duration-300 flex flex-col justify-between group shadow-xl">
+    <div className="bg-amatu-deep border border-white/10 rounded-2xl overflow-hidden hover:border-amatu-gold/50 transition-all duration-300 flex flex-col justify-between group shadow-xl">
       <div className="p-6 relative flex-1 flex flex-col justify-between">
         <div>
           {/* Product Image Area with Hover Switch */}
           <div
             className={`relative h-64 flex items-center justify-center ${
               isCover ? "" : "p-4"
-            } bg-white/[0.02] rounded-2xl mb-4 cursor-pointer overflow-hidden group/img`}
+            } bg-white/[0.02] rounded-xl mb-4 cursor-pointer overflow-hidden group/img`}
             onClick={() => onQuickView(product)}
             title="Haz clic para ver detalles y fotos"
           >
             {/* Floating Badge */}
             <span
-              className={`absolute top-3 right-3 z-20 pointer-events-none bg-stone-950/85 backdrop-blur-md text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full border shadow-md ${product.badgeColor}`}
+              className={`absolute top-3 right-3 z-20 pointer-events-none bg-stone-950/85 backdrop-blur-md text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-sm border shadow-md ${product.badgeColor}`}
             >
               {product.badge}
             </span>
@@ -78,9 +78,9 @@ export function ProductCard({ product, onQuickView }: ProductCardProps) {
               </div>
             )}
 
-            {/* Quick View Floating Pill */}
+            {/* Quick View Floating Button */}
             <div className="absolute inset-x-0 bottom-3 flex justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-20">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-stone-900/90 text-amatu-gold text-[11px] font-bold tracking-wider uppercase border border-amatu-gold/40 shadow-lg backdrop-blur-sm">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-sm bg-stone-900/90 text-amatu-gold text-[10px] font-bold tracking-wider uppercase border border-amatu-gold/40 shadow-lg backdrop-blur-sm">
                 <Eye className="w-3.5 h-3.5" />
                 Vista Rápida
               </span>
@@ -115,7 +115,7 @@ export function ProductCard({ product, onQuickView }: ProductCardProps) {
                   key={v}
                   type="button"
                   onClick={() => setSelectedVariant(v)}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all cursor-pointer ${
+                  className={`px-3 py-1.5 rounded-sm text-xs font-semibold border transition-all cursor-pointer ${
                     selectedVariant === v
                       ? "border-amatu-gold bg-amatu-gold text-stone-950 font-bold"
                       : "border-white/10 text-stone-300 hover:border-amatu-gold"
@@ -126,7 +126,7 @@ export function ProductCard({ product, onQuickView }: ProductCardProps) {
               ))}
             </div>
           ) : (
-            <div className="py-1.5 px-3 rounded-lg text-xs font-semibold bg-white/5 border border-white/10 text-stone-300 text-center">
+            <div className="py-1.5 px-3 rounded-sm text-xs font-semibold bg-white/5 border border-white/10 text-stone-300 text-center">
               {product.variants[0] || product.defaultVariant}
             </div>
           )}
@@ -146,7 +146,7 @@ export function ProductCard({ product, onQuickView }: ProductCardProps) {
         <button
           type="button"
           onClick={handleAddToCart}
-          className="inline-flex items-center gap-2 bg-amatu-gold hover:bg-amatu-gold-light text-stone-950 text-xs font-bold uppercase tracking-wider px-4 py-2.5 rounded-xl transition-all active:scale-95 cursor-pointer shadow-md shadow-amatu-gold/10"
+          className="inline-flex items-center gap-2 bg-amatu-gold hover:bg-amatu-gold-light text-stone-950 text-xs font-bold uppercase tracking-wider px-4 py-2.5 rounded-sm transition-all active:scale-95 cursor-pointer shadow-md shadow-amatu-gold/10"
         >
           <Plus className="w-4 h-4" />
           <span>Agregar</span>

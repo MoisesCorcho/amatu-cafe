@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { STORY_HIGHLIGHTS } from "@/data/brand";
 
 export function StorySection() {
   return (
@@ -12,7 +13,7 @@ export function StorySection() {
           {/* Visual Composition Left */}
           <div className="lg:col-span-6 relative">
             {/* Main plantation photo */}
-            <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white relative h-96 sm:h-[460px]">
+            <div className="rounded-2xl overflow-hidden shadow-2xl border-4 border-white relative h-96 sm:h-[460px]">
               <Image
                 src="/assets/Foto planta de cafe-2.jpg"
                 alt="Cafetales de Amatu en las montañas del Huila"
@@ -22,8 +23,8 @@ export function StorySection() {
             </div>
 
             {/* Overlapping ripe cherries card */}
-            <div className="absolute -bottom-8 -right-4 sm:-right-8 bg-white p-3 rounded-2xl shadow-xl max-w-[220px] hidden sm:block border border-stone-200">
-              <div className="relative w-full h-28 rounded-xl overflow-hidden mb-2">
+            <div className="absolute -bottom-8 -right-4 sm:-right-8 bg-white p-3 rounded-xl shadow-xl max-w-[220px] hidden sm:block border border-stone-200">
+              <div className="relative w-full h-28 rounded-lg overflow-hidden mb-2">
                 <Image
                   src="/assets/Foto planta de cafe-1.jpg"
                   alt="Frutos de café maduro"
@@ -48,7 +49,7 @@ export function StorySection() {
             </h2>
 
             {/* Poetic quote */}
-            <blockquote className="p-4 border-l-4 border-amatu-gold bg-stone-100/80 rounded-r-xl italic text-stone-700 font-serif text-lg leading-relaxed shadow-sm">
+            <blockquote className="p-4 border-l-4 border-amatu-gold bg-stone-100/80 rounded-r-sm italic text-stone-700 font-serif text-lg leading-relaxed shadow-sm">
               &ldquo;En las montañas donde el sol acaricia la tierra, el café se
               viste de flores, cada botón blanco es promesa de fruto, cada aroma
               anuncia la vida que despierta en los cafetales. Así florece la
@@ -64,24 +65,16 @@ export function StorySection() {
             </p>
 
             <div className="grid grid-cols-2 gap-6 pt-4 border-t border-stone-300">
-              <div>
-                <div className="text-amatu-gold-dark font-serif text-2xl font-bold">
-                  Variedades Nobles
+              {STORY_HIGHLIGHTS.map((item, idx) => (
+                <div key={idx}>
+                  <div className="text-amatu-gold-dark font-serif text-2xl font-bold">
+                    {item.title}
+                  </div>
+                  <p className="text-xs text-stone-600 mt-1">
+                    {item.description}
+                  </p>
                 </div>
-                <p className="text-xs text-stone-600 mt-1">
-                  Castillo, Colombia y blend insignia de Borbón Rosado con
-                  Supremo.
-                </p>
-              </div>
-              <div>
-                <div className="text-amatu-gold-dark font-serif text-2xl font-bold">
-                  De Calidad a Excelencia
-                </div>
-                <p className="text-xs text-stone-600 mt-1">
-                  Tueste artesanal calibrado para resaltar aroma y cuerpo
-                  sedoso.
-                </p>
-              </div>
+              ))}
             </div>
           </div>
         </div>
