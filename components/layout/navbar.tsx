@@ -116,7 +116,7 @@ export function Navbar() {
 
           <button
             onClick={openCart}
-            className="relative p-2.5 rounded-full bg-white/5 border border-white/10 hover:border-amatu-gold/50 text-stone-200 hover:text-white transition-all cursor-pointer"
+            className="relative p-2.5 rounded-sm bg-white/5 border border-white/10 hover:border-amatu-gold/50 text-stone-200 hover:text-white transition-all cursor-pointer"
             aria-label="Abrir carrito"
           >
             <ShoppingBag className="w-5 h-5 text-amatu-gold" />
@@ -129,7 +129,7 @@ export function Navbar() {
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2.5 rounded-full bg-white/5 border border-white/10 text-stone-200 hover:text-white transition-all cursor-pointer"
+            className="md:hidden p-2.5 rounded-sm bg-white/5 border border-white/10 text-stone-200 hover:text-white transition-all cursor-pointer"
             aria-label={mobileMenuOpen ? "Cerrar menú principal" : "Abrir menú principal"}
             aria-expanded={mobileMenuOpen}
             aria-controls="mobile-nav-drawer"
@@ -143,7 +143,7 @@ export function Navbar() {
       {mobileMenuOpen && (
         <div
           id="mobile-nav-drawer"
-          className="md:hidden bg-amatu-deep border-b border-white/10 px-6 py-6 space-y-4 animate-in slide-in-from-top duration-200"
+          className="absolute top-full left-0 right-0 w-full md:hidden bg-amatu-charcoal border-b border-white/10 px-6 py-6 space-y-4 shadow-2xl animate-in slide-in-from-top duration-200"
         >
           <nav className="flex flex-col gap-3">
             {NAV_ITEMS.map((item) => (
@@ -151,7 +151,7 @@ export function Navbar() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="py-2 text-stone-200 hover:text-amatu-gold text-base font-medium border-b border-white/5"
+                className="py-2 text-stone-200 hover:text-amatu-gold text-base font-medium border-b border-white/5 transition-colors"
               >
                 {item.label}
               </a>
@@ -162,6 +162,7 @@ export function Navbar() {
               )}`}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => setMobileMenuOpen(false)}
               className="inline-flex sm:hidden items-center justify-center gap-2 bg-amatu-gold hover:bg-amatu-gold-light text-stone-950 font-semibold text-xs tracking-wider uppercase px-5 py-3 rounded-sm mt-2 transition-colors"
             >
               <MessageCircle className="w-4 h-4" />
