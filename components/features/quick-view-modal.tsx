@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { Product } from "@/types";
 import { useCart } from "@/context/cart-context";
 import { X, Check, ShoppingBag } from "lucide-react";
@@ -307,6 +308,16 @@ function QuickViewModalDialog({
 }
 
 export function QuickViewModal({ product, onClose }: QuickViewModalProps) {
-  if (!product) return null;
-  return <QuickViewModalDialog key={product.id} product={product} onClose={onClose} />;
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!product || !mounted || typeof document === "undefined") return null;
+
+  return createPortal(
+    <QuickViewModalDialog key={product.id} product={product} onClose={onClose} />,
+    document.body
+  );
 }
