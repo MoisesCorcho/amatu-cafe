@@ -29,7 +29,7 @@ export function CatalogSection() {
             className="w-full h-auto"
           />
         </div>
-        <div className="absolute -bottom-16 -left-20 sm:-left-12 w-80 sm:w-96 md:w-[460px] h-auto opacity-[0.12] -rotate-45">
+        <div className="absolute bottom-6 sm:bottom-8 md:bottom-12 -left-20 sm:-left-12 w-80 sm:w-96 md:w-[460px] h-auto opacity-[0.12] -rotate-45">
           <Image
             src="/assets/coffeeBeanNuevo.svg"
             alt=""
