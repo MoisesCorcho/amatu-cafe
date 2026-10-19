@@ -38,6 +38,22 @@ export interface BrandAttribute {
   value: string;
 }
 
+export interface HeroContent {
+  headlinePrefix: string;
+  headlineHighlight: string;
+  headlineSuffix: string;
+  description: string;
+  attributes: BrandAttribute[];
+  primaryCta: {
+    label: string;
+    href: string;
+  };
+  secondaryCta: {
+    label: string;
+    href: string;
+  };
+}
+
 export interface TrustBadge {
   id: string;
   title: string;
