@@ -7,6 +7,7 @@ export function StorySection() {
   return (
     <section
       id="historia"
+      aria-labelledby="story-heading"
       className="bg-amatu-linen text-stone-800 pt-20 pb-28 md:pt-32 md:pb-36 relative z-10 -mt-[2px]"
     >
       <div className="max-w-7xl mx-auto px-6 relative z-20">
@@ -27,12 +28,16 @@ export function StorySection() {
       </div>
 
       {/* Curved SVG Divider to Catalog section */}
-      <div className="absolute -bottom-px left-0 right-0 w-full overflow-hidden leading-none pointer-events-none z-10 translate-y-[1px]">
+      <div
+        className="absolute -bottom-px left-0 right-0 w-full overflow-hidden leading-none pointer-events-none z-10 translate-y-[1px]"
+        aria-hidden="true"
+      >
         <svg
           className="block w-full h-16 sm:h-24 lg:h-32 text-amatu-charcoal scale-y-[1.02] origin-bottom"
           viewBox="0 0 1440 120"
           fill="none"
           preserveAspectRatio="none"
+          focusable="false"
         >
           <path
             d="M0,45 C280,115 620,120 920,55 C1180,5 1340,40 1440,65 L1440,125 L0,125 Z"

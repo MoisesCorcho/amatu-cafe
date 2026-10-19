@@ -28,7 +28,7 @@ export function StoryVisual({ mainImage, floatingCard }: StoryVisualProps) {
       </div>
 
       {/* Floating ripe cherries card - responsive for mobile & desktop */}
-      <div className="absolute -bottom-6 -right-2 sm:-bottom-8 sm:-right-8 bg-white p-2 sm:p-3 rounded-xl shadow-xl max-w-[160px] sm:max-w-[220px] border border-stone-200">
+      <figure className="absolute -bottom-6 -right-2 sm:-bottom-8 sm:-right-8 bg-white p-2 sm:p-3 rounded-xl shadow-xl max-w-[160px] sm:max-w-[220px] border border-stone-200 m-0">
         <div className="relative w-full h-20 sm:h-28 rounded-lg overflow-hidden mb-1.5 sm:mb-2">
           <Image
             src={floatingCard.src}
@@ -38,10 +38,10 @@ export function StoryVisual({ mainImage, floatingCard }: StoryVisualProps) {
             className="object-cover"
           />
         </div>
-        <p className="text-[11px] sm:text-xs font-semibold text-stone-800 text-center leading-tight">
+        <figcaption className="text-[11px] sm:text-xs font-semibold text-stone-800 text-center leading-tight">
           {floatingCard.caption}
-        </p>
-      </div>
+        </figcaption>
+      </figure>
     </div>
   );
 }
