@@ -6,7 +6,7 @@ export const PRODUCTS: Product[] = [
     name: "Café Especial Excelso",
     subtitle: "Bolsa 500g • Notas a Chocolate y Cerezas",
     badge: "Más Vendido",
-    badgeColor: "border-amatu-gold/40 text-amatu-gold bg-amatu-gold/10",
+    badgeColor: "bg-amatu-charcoal/90 backdrop-blur-md border-amatu-gold/40 text-amatu-gold",
     price: 35000,
     images: [
       "/assets/Iteracion-3.png",
@@ -34,7 +34,7 @@ export const PRODUCTS: Product[] = [
     name: "Sachets Filtrantes (Drip Coffee)",
     subtitle: "Caja x 10 Sachets individuales",
     badge: "Práctico & Rápido",
-    badgeColor: "border-amatu-cherry/40 text-red-300 bg-amatu-cherry/20",
+    badgeColor: "bg-amatu-charcoal/90 backdrop-blur-md border-amatu-cherry-light/40 text-amatu-cherry-light",
     price: 28000,
     images: [
       "/assets/sachets_filtrantes_amatu.jpg",
@@ -59,7 +59,7 @@ export const PRODUCTS: Product[] = [
     name: "Prensa Francesa (Cafetera de Émbolo)",
     subtitle: "600 ml • Vidrio Borosilicato & Acero Inox",
     badge: "Método Clásico",
-    badgeColor: "border-sky-500/30 text-sky-300 bg-sky-500/15",
+    badgeColor: "bg-amatu-charcoal/90 backdrop-blur-md border-amatu-cherry-light/40 text-amatu-cherry-light",
     price: 45000,
     images: [
       "/assets/prensa_francesa_1.jpeg",
@@ -84,7 +84,7 @@ export const PRODUCTS: Product[] = [
     name: "Cuchara Dosificadora con Pinza Hermética",
     subtitle: "Acero Inoxidable • Accesorio 2 en 1",
     badge: "Accesorio Esencial",
-    badgeColor: "border-emerald-500/30 text-emerald-300 bg-emerald-500/15",
+    badgeColor: "bg-amatu-linen text-amatu-charcoal border-amatu-charcoal/40 shadow-sm font-bold",
     price: 18000,
     images: [
       "/assets/cuchara_con_pinza_sellado_hermetico_1.jpeg",
@@ -108,7 +108,7 @@ export const PRODUCTS: Product[] = [
     name: "Kit Cafetero #1 (500g)",
     subtitle: "Café 500g + Prensa Francesa + Cuchara con Pinza",
     badge: "Kit Completo",
-    badgeColor: "border-amber-500/30 text-amber-300 bg-amber-500/15",
+    badgeColor: "bg-amatu-charcoal/90 backdrop-blur-md border-amatu-gold/40 text-amatu-gold",
     price: 85000,
     images: [
       "/assets/kit_cafetero_1_image.jpg",
@@ -134,7 +134,7 @@ export const PRODUCTS: Product[] = [
     name: "Kit Cafetero #2 (250g)",
     subtitle: "Café 250g + Prensa Francesa Black + Cuchara",
     badge: "Kit Compacto",
-    badgeColor: "border-amber-500/30 text-amber-300 bg-amber-500/15",
+    badgeColor: "bg-amatu-linen text-amatu-charcoal border-amatu-charcoal/40 shadow-sm font-bold",
     price: 70000,
     images: [
       "/assets/kit_cafetero_2_image.jpg",

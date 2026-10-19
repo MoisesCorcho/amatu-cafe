@@ -32,20 +32,20 @@ export function ProductCard({ product, onQuickView }: ProductCardProps) {
   const isCover = product.imageFit === "cover";
 
   return (
-    <div className="bg-amatu-deep border border-white/10 rounded-2xl overflow-hidden hover:border-amatu-gold/50 transition-all duration-300 flex flex-col justify-between group shadow-xl">
+    <div className="bg-amatu-deep border border-white/10 rounded-sm overflow-hidden hover:border-amatu-gold/50 transition-all duration-300 flex flex-col justify-between group shadow-xl">
       <div className="p-6 relative flex-1 flex flex-col justify-between">
         <div>
           {/* Product Image Area with Hover Switch */}
           <div
             className={`relative h-64 flex items-center justify-center ${
               isCover ? "" : "p-4"
-            } bg-white/[0.02] rounded-xl mb-4 cursor-pointer overflow-hidden group/img`}
+            } bg-white/[0.02] rounded-sm mb-4 cursor-pointer overflow-hidden group/img`}
             onClick={() => onQuickView(product)}
             title="Haz clic para ver detalles y fotos"
           >
             {/* Floating Badge */}
             <span
-              className={`absolute top-3 right-3 z-20 pointer-events-none bg-stone-950/85 backdrop-blur-md text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-sm border shadow-md ${product.badgeColor}`}
+              className={`absolute top-3 right-3 z-20 pointer-events-none text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-sm border shadow-md ${product.badgeColor}`}
             >
               {product.badge}
             </span>
@@ -56,6 +56,7 @@ export function ProductCard({ product, onQuickView }: ProductCardProps) {
                 src={product.images[0]}
                 alt={product.name}
                 fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 384px"
                 className={`transition-all duration-500 ease-out group-hover:scale-105 ${
                   isCover ? "object-cover" : "object-contain"
                 } ${hasSecondaryImage ? "group-hover:opacity-0" : ""}`}
@@ -73,6 +74,8 @@ export function ProductCard({ product, onQuickView }: ProductCardProps) {
                   src={product.images[1]}
                   alt={`${product.name} vista secundaria`}
                   fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 384px"
+                  loading="lazy"
                   className={isCover ? "object-cover" : "object-contain"}
                 />
               </div>
@@ -87,17 +90,17 @@ export function ProductCard({ product, onQuickView }: ProductCardProps) {
             </div>
           </div>
 
-          <div>
+          <div className="flex flex-col">
             <h3
-              className="font-serif text-2xl font-bold text-white hover:text-amatu-gold cursor-pointer transition-colors"
+              className="font-serif text-2xl font-bold text-white hover:text-amatu-gold cursor-pointer transition-colors min-h-[3.75rem] flex items-start line-clamp-2"
               onClick={() => onQuickView(product)}
             >
               {product.name}
             </h3>
-            <p className="text-xs text-amatu-gold mt-1 font-medium">
+            <p className="text-xs text-amatu-gold mt-1 font-medium min-h-[1.25rem] truncate">
               {product.subtitle}
             </p>
-            <p className="text-stone-400 text-xs mt-3 leading-relaxed line-clamp-3">
+            <p className="text-stone-400 text-xs mt-3 leading-relaxed line-clamp-3 min-h-[3.6rem]">
               {product.description}
             </p>
           </div>
@@ -105,31 +108,33 @@ export function ProductCard({ product, onQuickView }: ProductCardProps) {
 
         {/* Variants Selector */}
         <div className="mt-6 pt-4 border-t border-white/10">
-          <label className="block text-xs text-stone-400 mb-1.5 font-medium">
+          <label className="block text-xs text-stone-400 mb-2 font-medium">
             {product.variantsLabel || "Presentación:"}
           </label>
-          {product.variants.length > 1 ? (
-            <div className="grid grid-cols-2 gap-2">
-              {product.variants.map((v) => (
-                <button
-                  key={v}
-                  type="button"
-                  onClick={() => setSelectedVariant(v)}
-                  className={`px-3 py-1.5 rounded-sm text-xs font-semibold border transition-all cursor-pointer ${
-                    selectedVariant === v
-                      ? "border-amatu-gold bg-amatu-gold text-stone-950 font-bold"
-                      : "border-white/10 text-stone-300 hover:border-amatu-gold"
-                  }`}
-                >
-                  {v}
-                </button>
-              ))}
-            </div>
-          ) : (
-            <div className="py-1.5 px-3 rounded-sm text-xs font-semibold bg-white/5 border border-white/10 text-stone-300 text-center">
-              {product.variants[0] || product.defaultVariant}
-            </div>
-          )}
+          <div className="h-9">
+            {product.variants.length > 1 ? (
+              <div className="grid grid-cols-2 gap-2 h-full">
+                {product.variants.map((v) => (
+                  <button
+                    key={v}
+                    type="button"
+                    onClick={() => setSelectedVariant(v)}
+                    className={`h-full px-3 rounded-sm text-xs font-semibold border transition-all cursor-pointer flex items-center justify-center ${
+                      selectedVariant === v
+                        ? "border-amatu-gold bg-amatu-gold text-stone-950 font-bold"
+                        : "border-white/10 text-stone-300 hover:border-amatu-gold"
+                    }`}
+                  >
+                    {v}
+                  </button>
+                ))}
+              </div>
+            ) : (
+              <div className="h-full px-3 rounded-sm text-xs font-medium bg-white/[0.03] border border-white/10 text-stone-300 flex items-center justify-center text-center">
+                {product.variants[0] || product.defaultVariant}
+              </div>
+            )}
+          </div>
         </div>
       </div>
 

@@ -38,6 +38,22 @@ export interface BrandAttribute {
   value: string;
 }
 
+export interface HeroContent {
+  headlinePrefix: string;
+  headlineHighlight: string;
+  headlineSuffix: string;
+  description: string;
+  attributes: BrandAttribute[];
+  primaryCta: {
+    label: string;
+    href: string;
+  };
+  secondaryCta: {
+    label: string;
+    href: string;
+  };
+}
+
 export interface TrustBadge {
   id: string;
   title: string;
@@ -48,6 +64,26 @@ export interface TrustBadge {
 export interface StoryHighlight {
   title: string;
   description: string;
+}
+
+export interface StoryContent {
+  eyebrow: string;
+  coordinates?: string;
+  title: string;
+  quote: string;
+  altitudeHighlight: string;
+  descriptionPrefix: string;
+  descriptionSuffix: string;
+  highlights: StoryHighlight[];
+  mainImage: {
+    src: string;
+    alt: string;
+  };
+  floatingCard: {
+    src: string;
+    alt: string;
+    caption: string;
+  };
 }
 
 export interface SocialLink {
@@ -61,4 +97,10 @@ export interface ContactInfo {
   email: string;
   location: string;
   instagram: SocialLink;
+}
+
+export interface CatalogContent {
+  eyebrow: string;
+  title: string;
+  description: string;
 }

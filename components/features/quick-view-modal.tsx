@@ -156,7 +156,7 @@ function QuickViewModalDialog({
             <div className="pr-10 sm:pr-12 md:pr-14 space-y-2">
               <div>
                 <span
-                  className={`inline-flex items-center text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-sm border bg-stone-950/85 backdrop-blur-md shadow-md ${product.badgeColor}`}
+                  className={`inline-flex items-center text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-sm border shadow-md ${product.badgeColor}`}
                 >
                   {product.badge}
                 </span>
