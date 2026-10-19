@@ -50,6 +50,25 @@ export interface StoryHighlight {
   description: string;
 }
 
+export interface StoryContent {
+  eyebrow: string;
+  title: string;
+  quote: string;
+  altitudeHighlight: string;
+  descriptionPrefix: string;
+  descriptionSuffix: string;
+  highlights: StoryHighlight[];
+  mainImage: {
+    src: string;
+    alt: string;
+  };
+  floatingCard: {
+    src: string;
+    alt: string;
+    caption: string;
+  };
+}
+
 export interface SocialLink {
   handle: string;
   url: string;
