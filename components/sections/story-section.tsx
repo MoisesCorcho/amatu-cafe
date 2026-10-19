@@ -8,7 +8,7 @@ export function StorySection() {
     <section
       id="historia"
       aria-labelledby="story-heading"
-      className="bg-amatu-linen text-stone-800 pt-6 sm:pt-8 md:pt-10 pb-24 md:pb-32 relative z-10 -mt-[2px] scroll-mt-20 sm:scroll-mt-24 md:scroll-mt-28"
+      className="bg-amatu-linen text-stone-800 pt-16 sm:pt-20 md:pt-28 pb-24 md:pb-32 relative z-10 -mt-[2px] scroll-mt-20 sm:scroll-mt-24 md:scroll-mt-28"
     >
       <div className="max-w-7xl mx-auto px-6 relative z-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
