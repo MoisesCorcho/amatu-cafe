@@ -8,13 +8,13 @@ export function HeroSection() {
     <section
       id="hero"
       aria-labelledby="hero-heading"
-      className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-gradient-to-b from-amatu-charcoal via-amatu-deep to-amatu-charcoal"
+      className="relative min-h-[100dvh] flex flex-col justify-center pt-28 pb-28 sm:pt-32 sm:pb-32 md:pt-36 md:pb-36 overflow-hidden bg-gradient-to-b from-amatu-charcoal via-amatu-deep to-amatu-charcoal"
     >
       {/* Background glow accents */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-amatu-gold/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-10 right-1/4 w-96 h-96 bg-amatu-cherry/10 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-20">
+      <div className="max-w-7xl mx-auto px-6 relative z-20 w-full my-auto">
         <div className="grid grid-cols-1 xl:grid-cols-12 gap-12 items-center">
           <HeroNarrative content={HERO_CONTENT} />
           <HeroVisualStage />
