@@ -1,7 +1,8 @@
 import { StoryContent } from "@/types";
 
 export const STORY_CONTENT: StoryContent = {
-  eyebrow: "Tradición & Altura • Huila, Colombia",
+  eyebrow: "Tradición & Altura",
+  coordinates: "Pitalito, Huila · 1°51′N 76°03′W · 1.850 - 1.930 msnm",
   title: "Nacido en las cumbres donde el sol acaricia la tierra",
   quote:
     "En las montañas donde el sol acaricia la tierra, el café se viste de flores, cada botón blanco es promesa de fruto, cada aroma anuncia la vida que despierta en los cafetales. Así florece la esperanza, así nace la esencia de nuestro café especial.",
@@ -20,13 +21,13 @@ export const STORY_CONTENT: StoryContent = {
     },
   ],
   mainImage: {
-    src: "/assets/Foto planta de cafe-2.jpg",
-    alt: "Cafetales de Amatu en las montañas del Huila",
+    src: "/assets/Foto planta de cafe-1.jpg",
+    alt: "Frutos de café maduro en los cafetales de Amatu",
   },
   floatingCard: {
-    src: "/assets/Foto planta de cafe-1.jpg",
-    alt: "Frutos de café maduro",
-    caption: "Cosecha manual grano a grano",
+    src: "/assets/Foto planta de cafe-2-sin texto.jpg",
+    alt: "Cafetales de Amatu en las montañas del Huila",
+    caption: "Cafetales en el Huila",
   },
 };
 

@@ -9,10 +9,6 @@ interface StoryNarrativeProps {
 export function StoryNarrative({ content }: StoryNarrativeProps) {
   return (
     <div className="space-y-6">
-      <span className="inline-block text-xs uppercase font-bold tracking-widest text-amatu-gold-dark">
-        {content.eyebrow}
-      </span>
-
       <h2
         id="story-heading"
         className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-stone-900 leading-tight"

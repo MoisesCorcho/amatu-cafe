@@ -52,6 +52,7 @@ export interface StoryHighlight {
 
 export interface StoryContent {
   eyebrow: string;
+  coordinates?: string;
   title: string;
   quote: string;
   altitudeHighlight: string;
