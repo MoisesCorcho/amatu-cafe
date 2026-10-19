@@ -31,16 +31,7 @@ export const HERO_ATTRIBUTES: BrandAttribute[] = [
   },
 ];
 
-export const STORY_HIGHLIGHTS: StoryHighlight[] = [
-  {
-    title: "Variedades Nobles",
-    description: "Castillo, Colombia y blend insignia de Borbón Rosado con Supremo.",
-  },
-  {
-    title: "De Calidad a Excelencia",
-    description: "Tueste artesanal calibrado para resaltar aroma y cuerpo sedoso.",
-  },
-];
+export { STORY_HIGHLIGHTS } from "./story";
 
 export const ABOUT_TRUST_BADGES: TrustBadge[] = [
   {
