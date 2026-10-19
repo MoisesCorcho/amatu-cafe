@@ -98,3 +98,9 @@ export interface ContactInfo {
   location: string;
   instagram: SocialLink;
 }
+
+export interface CatalogContent {
+  eyebrow: string;
+  title: string;
+  description: string;
+}

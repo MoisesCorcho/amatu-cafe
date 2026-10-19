@@ -56,6 +56,7 @@ export function ProductCard({ product, onQuickView }: ProductCardProps) {
                 src={product.images[0]}
                 alt={product.name}
                 fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 384px"
                 className={`transition-all duration-500 ease-out group-hover:scale-105 ${
                   isCover ? "object-cover" : "object-contain"
                 } ${hasSecondaryImage ? "group-hover:opacity-0" : ""}`}
@@ -73,6 +74,8 @@ export function ProductCard({ product, onQuickView }: ProductCardProps) {
                   src={product.images[1]}
                   alt={`${product.name} vista secundaria`}
                   fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 384px"
+                  loading="lazy"
                   className={isCover ? "object-cover" : "object-contain"}
                 />
               </div>
