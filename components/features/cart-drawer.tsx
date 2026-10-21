@@ -20,6 +20,7 @@ export function CartDrawer() {
 
   const [customerName, setCustomerName] = useState("");
   const [customerCity, setCustomerCity] = useState("");
+  const [customerAddress, setCustomerAddress] = useState("");
 
   useEffect(() => {
     if (!isOpen) return;
@@ -48,7 +49,7 @@ export function CartDrawer() {
 
   const handleCheckout = (e: React.FormEvent) => {
     e.preventDefault();
-    sendOrderToWhatsApp(customerName, customerCity);
+    sendOrderToWhatsApp(customerName, customerCity, customerAddress);
   };
 
   return (
@@ -164,7 +165,7 @@ export function CartDrawer() {
             <div className="space-y-2">
               <input
                 type="text"
-                placeholder="Tu Nombre completo"
+                placeholder="Tu Nombre completo *"
                 value={customerName}
                 onChange={(e) => setCustomerName(e.target.value)}
                 className="w-full bg-white/5 border border-white/10 rounded-sm px-4 py-2.5 text-xs text-white placeholder-stone-500 focus:outline-none focus:border-amatu-gold transition-colors"
@@ -172,11 +173,18 @@ export function CartDrawer() {
               />
               <input
                 type="text"
-                placeholder="Ciudad / Municipio de envío"
+                placeholder="Ciudad / Municipio de envío *"
                 value={customerCity}
                 onChange={(e) => setCustomerCity(e.target.value)}
                 className="w-full bg-white/5 border border-white/10 rounded-sm px-4 py-2.5 text-xs text-white placeholder-stone-500 focus:outline-none focus:border-amatu-gold transition-colors"
                 required
+              />
+              <input
+                type="text"
+                placeholder="Dirección / Barrio (opcional)"
+                value={customerAddress}
+                onChange={(e) => setCustomerAddress(e.target.value)}
+                className="w-full bg-white/5 border border-white/10 rounded-sm px-4 py-2.5 text-xs text-white placeholder-stone-500 focus:outline-none focus:border-amatu-gold transition-colors"
               />
             </div>
 
