@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { useCart } from "@/context/cart-context";
+import { useScrollLock } from "@/hooks/use-scroll-lock";
 import { X, Trash2, Coffee, MessageCircle } from "lucide-react";
 import Image from "next/image";
 
@@ -21,18 +22,10 @@ export function CartDrawer() {
   const [customerName, setCustomerName] = useState("");
   const [customerCity, setCustomerCity] = useState("");
 
+  useScrollLock(isOpen);
+
   useEffect(() => {
     if (!isOpen) return;
-
-    const originalOverflow = document.body.style.overflow;
-    const originalPaddingRight = document.body.style.paddingRight;
-    const scrollbarWidth =
-      window.innerWidth - document.documentElement.clientWidth;
-
-    document.body.style.overflow = "hidden";
-    if (scrollbarWidth > 0) {
-      document.body.style.paddingRight = `${scrollbarWidth}px`;
-    }
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") closeCart();
@@ -40,8 +33,6 @@ export function CartDrawer() {
     window.addEventListener("keydown", handleKeyDown);
 
     return () => {
-      document.body.style.overflow = originalOverflow;
-      document.body.style.paddingRight = originalPaddingRight;
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [isOpen, closeCart]);
