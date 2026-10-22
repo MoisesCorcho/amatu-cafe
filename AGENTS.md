@@ -12,5 +12,6 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 Refer to `.agents/rules/` and `.agents/skills/` for project standards:
 - [Architecture & RSC Rules](.agents/rules/architecture.md)
+- [UI/UX Design System & Editorial Standards](.agents/rules/ui-design-system.md)
 - [Tailwind CSS v4 & Theme Tokens](.agents/rules/tailwind-v4.md)
 - [Prototype Migration Skill](.agents/skills/prototype-migration/SKILL.md)

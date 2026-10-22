@@ -12,7 +12,7 @@ export function Badge({
   className = "",
 }: BadgeProps) {
   const base =
-    "inline-flex items-center text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full border";
+    "inline-flex items-center text-[10px] sm:text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-sm border";
 
   const variants = {
     gold: "border-amatu-gold/40 text-amatu-gold bg-amatu-gold/10",

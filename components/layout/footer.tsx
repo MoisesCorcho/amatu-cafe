@@ -41,13 +41,13 @@ export function Footer() {
 
         <div className="flex items-center gap-6">
           <a
-            href="https://www.instagram.com/amatu_cafeespecial/"
+            href={CONTACT_INFO.instagram.url}
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-amatu-gold flex items-center gap-1.5 transition-colors"
           >
             <InstagramIcon className="w-4 h-4 text-amatu-gold" />
-            <span>@amatu_cafeespecial</span>
+            <span>{CONTACT_INFO.instagram.handle}</span>
           </a>
           <span className="text-stone-700">•</span>
           <a
