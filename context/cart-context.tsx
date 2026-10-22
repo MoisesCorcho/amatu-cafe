@@ -23,7 +23,7 @@ interface CartContextType {
   totalItems: number;
   totalPrice: number;
   formatCOP: (value: number) => string;
-  sendOrderToWhatsApp: (name: string, city: string) => void;
+  sendOrderToWhatsApp: (name: string, city: string, address?: string) => void;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -102,26 +102,51 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     return "$" + value.toLocaleString("es-CO") + " COP";
   };
 
-  const sendOrderToWhatsApp = (name: string, city: string) => {
+  const sendOrderToWhatsApp = (name: string, city: string, address?: string) => {
     if (cart.length === 0) return;
 
     const customerName = name.trim() || "No especificado";
     const customerCity = city.trim() || "No especificada";
+    const customerAddress = address?.trim() || "";
 
-    let text = `¡Hola Amatu Café! ☕\nQuiero realizar el siguiente pedido:\n\n`;
+    const lines: string[] = [
+      "*NUEVO PEDIDO — AMATU CAFÉ*",
+      "────────────────────────────",
+      "*Detalle de la orden:*",
+      "",
+    ];
+
     cart.forEach((item) => {
-      text += `• ${item.quantity}x ${item.name} (${item.variant}) - ${formatCOP(
-        item.price * item.quantity
-      )}\n`;
+      lines.push(`- *${item.quantity}x* ${item.name}`);
+      lines.push(`  * Presentación: ${item.variant}`);
+      lines.push(`  * Subtotal: ${formatCOP(item.price * item.quantity)}`);
+      lines.push("");
     });
 
-    text += `\n📦 *Total estimado:* ${formatCOP(totalPrice)}\n`;
-    text += `👤 *Cliente:* ${customerName}\n`;
-    text += `📍 *Dirección / Ciudad:* ${customerCity}\n\n`;
-    text += `¿Me confirman disponibilidad y medios de pago? ¡Muchas gracias!`;
+    lines.push("────────────────────────────");
+    lines.push("*Resumen:*");
+    lines.push(`- *Subtotal productos:* ${formatCOP(totalPrice)}`);
+    lines.push(`- *Envío:* Por coordinar según transportadora (desde Huila)`);
+    lines.push(`- *TOTAL PRODUCTOS:* *${formatCOP(totalPrice)}*`);
+    lines.push("");
+    lines.push("────────────────────────────");
+    lines.push("*Datos de entrega:*");
+    lines.push(`- *Cliente:* ${customerName}`);
+    lines.push(`- *Destino:* ${customerCity}`);
+    if (customerAddress) {
+      lines.push(`- *Dirección:* ${customerAddress}`);
+    } else {
+      lines.push(`- *Dirección:* Por coordinar en el chat`);
+    }
+    lines.push("");
+    lines.push("────────────────────────────");
+    lines.push(
+      "¡Hola! Por favor me confirman disponibilidad, valor del flete y cuentas para transferencia (Bancolombia / Nequi). ¡Muchas gracias!"
+    );
 
-    const url = `https://wa.me/${CONTACT_INFO.whatsappNumber}?text=${encodeURIComponent(
-      text
+    const message = lines.join("\n");
+    const url = `https://api.whatsapp.com/send?phone=${CONTACT_INFO.whatsappNumber}&text=${encodeURIComponent(
+      message
     )}`;
     window.open(url, "_blank");
   };
